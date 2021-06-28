@@ -18,9 +18,17 @@ const reducer = combineReducers({
 
 })
 
-let initialState = {}
+const userFromStorage = localStorage.getItem('User') ? JSON.parse
+    (localStorage.getItem('User')) : []
+
+let initialState = {
+    user: userFromStorage
+}
 
 const middlware = [thunk];
-const application = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(...middlware)));
+const application = createStore(
+    reducer,
+    initialState,
+    composeWithDevTools(applyMiddleware(...middlware)));
 
 export default application;

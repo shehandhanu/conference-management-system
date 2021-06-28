@@ -18,19 +18,22 @@ export const getUser = () => async (dispatch) => {
             type: USER_REQUEST
         })
 
-        const token = CookieService.get()
-        if (!token) {
-            const data = {};
-            dispatch({
-                type: USER_SUCCESS,
-                payload: data
-            })
-        } else {
+        const { data } = await axios.get('http://localhost:4000/api/v1/profile', { withCredentials: true })
 
-            const { data } = await axios.get('http://localhost:4000/api/v1/profile', { withCredentials: true })
+        console.log(data);
+
+
+        if (data.success) {
             dispatch({
                 type: USER_SUCCESS,
                 payload: data.user
+            })
+            return true;
+
+        } else {
+            dispatch({
+                type: USER_FAIL,
+                payload: error.response.data.message
             })
         }
 

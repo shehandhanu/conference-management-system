@@ -94,9 +94,9 @@ const Header = () => {
 
     const dispatch = useDispatch();
 
-    const data = useSelector(state => state.user)
     const auth = useSelector(state => state.auth)
     const notifications = useSelector(state => state.notification)
+    const data = useSelector(state => state.user)
 
     useEffect(() => {
 
@@ -108,14 +108,16 @@ const Header = () => {
             setUser(false)
         } else {
             setUser(true)
-            setData(data)
 
+            setData(data)
             toast.success('Welcome ' + name)
         }
 
     }, [dispatch, auth])
 
+
     const setData = (data) => {
+        console.log(data[0]);
         setname(data.user.fullName)
         settype(data.user.role)
     }

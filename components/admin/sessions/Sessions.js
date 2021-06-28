@@ -257,7 +257,6 @@ const AdminSession = () => {
                                                         variant="contained"
                                                         style={{ marginLeft: "5px" }}
                                                         size="small"
-                                                        onClick={() => requestAdmin(row._id)}
                                                         className={classes.button}
                                                         startIcon={< CheckCircleIcon />}
                                                     >
@@ -298,7 +297,6 @@ const AdminSession = () => {
                                                         variant="contained"
                                                         style={{ marginLeft: "5px", background: "#4caf50", color: "#fffff0" }}
                                                         size="small"
-                                                        onClick={requestAdmin}
                                                         className={classes.button}
                                                         startIcon={< CheckCircleIcon />}
                                                     >
