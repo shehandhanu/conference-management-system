@@ -55,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
 const AdminResearch = () => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
+    const [selectedRow, setRow] = useState()
 
     const dispatch = useDispatch()
     const redirect = location.search ? location.search.split('=')[1] : '/'
@@ -81,7 +82,9 @@ const AdminResearch = () => {
     }
 
 
-    const handleClickOpen = () => {
+    const handleClickOpen = (row) => {
+        console.log(row);
+        setRow(row)
         setOpen(true);
     };
 
@@ -163,7 +166,7 @@ const AdminResearch = () => {
                                                 variant="contained"
                                                 color="primary"
                                                 size="small"
-                                                onClick={handleClickOpen}
+                                                onClick={() => handleClickOpen(row)}
                                                 className={classes.button}
                                                 startIcon={<VisibilityIcon />}
                                             >

@@ -100,7 +100,7 @@ const SessionPraposal = ({ location, history }) => {
         e.preventDefault();
 
         dispatch(addSessions(data))
-
+        history.push('/')
     }
 
     const uploadImage = async () => {

@@ -20,10 +20,10 @@ export const getUser = () => async (dispatch) => {
 
         const { data } = await axios.get('http://localhost:4000/api/v1/profile', { withCredentials: true })
 
-        console.log(data);
 
 
         if (data.success) {
+            console.log("DAta got redux", data);
             dispatch({
                 type: USER_SUCCESS,
                 payload: data.user

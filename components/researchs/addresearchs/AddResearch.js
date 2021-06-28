@@ -101,6 +101,7 @@ const AddResearch = ({ location, history }) => {
 
         dispatch(addResearchs(data))
 
+        history.push('/')
     }
 
     const uploadImage = async () => {

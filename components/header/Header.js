@@ -21,6 +21,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getUser } from '../../actions/userActions';
 import { getNotification, removeNotifications } from '../../actions/notificationActions';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -98,17 +99,23 @@ const Header = () => {
     const notifications = useSelector(state => state.notification)
     const data = useSelector(state => state.user)
 
+    axios.get('http://localhost:4000/api/v1/profile', { withCredentials: true }).then(data => setData(data))
+
+
+
     useEffect(() => {
 
         dispatch(getUser());
         dispatch(getNotification())
-
+        console.log("Data", data);
         const token = CookieService.get()
+
+
+
         if (!token) {
             setUser(false)
         } else {
             setUser(true)
-
             setData(data)
             toast.success('Welcome ' + name)
         }
@@ -117,9 +124,17 @@ const Header = () => {
 
 
     const setData = (data) => {
-        console.log(data[0]);
-        setname(data.user.fullName)
-        settype(data.user.role)
+
+        // if (data !== undefined)
+        if (data.hasOwnProperty("data")) {
+            if (data.hasOwnProperty("data")) {
+
+                setname(data.data.user.fullName)
+                settype(data.data.user.role)
+
+            }
+        }
+
     }
     const logout = () => {
         CookieService.remove();
@@ -268,12 +283,12 @@ const Header = () => {
                                 onClose={handleClose2}
                             >
                                 <div>
-                                    {/* {notifications && notifications.notification.map((notification) => (
+                                    {notifications.notification && notifications.notification.map((notification) => (
                                         <div>
                                             {notification.isChecked == true ?
                                                 null
                                                 :
-                                                <Button
+                                                <Button key={notification._id}
                                                     style={{ height: "50px", width: "500px" }}
                                                     onClick={() => removeNotification(notification._id)}>
                                                     <Typography className={classes.title} variant="h4" noWrap>
@@ -284,7 +299,7 @@ const Header = () => {
                                                 </Button>
                                             }
                                         </div>
-                                    ))} */}
+                                    ))}
                                 </div>
 
                             </Menu>
