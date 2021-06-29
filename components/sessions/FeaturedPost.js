@@ -43,7 +43,8 @@ export default function FeaturedPost(props) {
   const { post } = props;
 
   useEffect(() => {
-
+    console.log("UsseEggect")
+    console.log(open)
 
   }, [open]);
 
@@ -63,30 +64,34 @@ export default function FeaturedPost(props) {
   const handleClose = () => {
     console.log("clicked");
     setOpen(false);
-    console.log(open);
+    //console.log(open);
   };
 
   return (
     <Grid item xs={12}>
-      <CardActionArea onClick={handleClickOpen} component="a">
-        <div className={classes.input}>
-          <Dialog fullScreen open={open} onClose={() => handleClose()} TransitionComponent={Transition}>
-            <AppBar className={classes.appBar}>
-              <Toolbar>
-                <IconButton edge="start" color="inherit" onClick={() => handleClose()} aria-label="close">
-                  <CloseIcon />
-                </IconButton>
-                <Typography variant="h6" className={classes.title}>
-                  {post.sessionName}
-                </Typography>
-                <Button autoFocus color="inherit" onClick={() => joinSession(post._id)}>
-                  Join Sessions
-                </Button>
-              </Toolbar>
-            </AppBar>
-            <SessionView post={post && post} />
-          </Dialog>
-        </div>
+      <CardActionArea onClick={() => handleClickOpen()} component="a">
+        {
+          open && (
+            <div className={classes.input}>
+              <Dialog fullScreen open={open} onClose={() => handleClose()} TransitionComponent={Transition}>
+                <AppBar className={classes.appBar}>
+                  <Toolbar>
+                    <IconButton edge="start" color="inherit" onClick={() => handleClose()} aria-label="close">
+                      <CloseIcon />
+                    </IconButton>
+                    <Typography variant="h6" className={classes.title}>
+                      {post.sessionName}
+                    </Typography>
+                    <Button autoFocus color="inherit" onClick={() => joinSession(post._id)}>
+                      Join Sessions
+                    </Button>
+                  </Toolbar>
+                </AppBar>
+                <SessionView post={post && post} />
+              </Dialog>
+            </div>
+          )
+        }
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
             <CardContent>

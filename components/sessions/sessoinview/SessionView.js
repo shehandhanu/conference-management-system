@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(8, 4),
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+        alignItems: 'left',
     },
     avatar: {
         margin: theme.spacing(1),
@@ -55,61 +55,30 @@ export default function SignInSide(props) {
             <Grid item xs={false} sm={4} md={7} className={classes.image} style={{ backgroundImage: `url(${post.flyer})` }} />
             <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                 <div className={classes.paper}>
-                    {/* <Avatar className={classes.avatar}>
-                        <LockOutlinedIcon />
-                    </Avatar> */}
-                    <Typography component="h1" variant="h5">
-                        {post._id}
+                    <Typography style={{ marginBottom: "20px" }} component="h5" variant="h5">
+                        {post.sessionName}
                     </Typography>
-                    {/* <form className={classes.form} noValidate>
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
-                            autoFocus
-                        />
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                        />
-                        <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
-                            label="Remember me"
-                        />
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
-                        >
-                            Sign In
-                        </Button>
-                        <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
-                                </Link>
-                            </Grid>
-                            <Grid item>
-                                <Link href="#" variant="body2">
-                                    {"Don't have an account? Sign Up"}
-                                </Link>
-                            </Grid>
-                        </Grid>
-                    </form> */}
+                    <Typography style={{ fontSize: "15px", marginBottom: "10px" }} component="h5" variant="h6">
+                        Session ID : {post._id}
+                    </Typography>
+                    <Typography style={{ fontSize: "15px", marginBottom: "10px" }} component="h5" variant="h6">
+                        Session Name: {post.sessionName}
+                    </Typography>
+                    <Typography style={{ fontSize: "15px", marginBottom: "10px" }} component="h5" variant="h6">
+                        Prasenter Name: {post.researcherName}
+                    </Typography>
+                    <Typography style={{ fontSize: "15px", marginBottom: "10px" }} component="h5" variant="h6">
+                        Prasenter Name: {post.email}
+                    </Typography>
+                    <Typography style={{ fontSize: "15px", marginBottom: "10px" }} component="h5" variant="h6">
+                        Prapose Date: {post.praposeDate}
+                    </Typography>
+                    <Typography style={{ fontSize: "15px", marginBottom: "10px" }} component="h5" variant="h6">
+                        Prapose Date: {post.date}
+                    </Typography>
+                    <Typography style={{ fontSize: "15px", marginBottom: "10px" }} component="h5" variant="h6">
+                        Venue: {post.venue}
+                    </Typography>
                 </div>
             </Grid>
         </Grid>

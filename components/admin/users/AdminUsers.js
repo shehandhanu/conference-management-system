@@ -101,8 +101,10 @@ const AdminResearch = () => {
         return <Slide direction="up" ref={ref} {...props} />;
     });
 
+    const [openedRow, setOpenedRow] = useState()
 
-    const handleClickOpen = () => {
+    const handleClickOpen = (row) => {
+        setOpenedRow(row)
         setOpen(true);
     };
 
@@ -188,53 +190,56 @@ const AdminResearch = () => {
                                         </TableCell>
                                         <TableCell align="center">{roles = row.role}</TableCell>
                                         <TableCell align="center">
-                                            <IconButton onClick={handleClickOpen} color="primary" aria-label="upload picture" component="span">
+                                            <IconButton onClick={() => handleClickOpen(row)} color="primary" aria-label="upload picture" component="span">
                                                 <EditIcon />
                                             </IconButton>
-                                            <Dialog
-                                                open={open}
-                                                TransitionComponent={Transition}
-                                                keepMounted
-                                                onClose={handleClose}
-                                                aria-labelledby="alert-dialog-slide-title"
-                                                aria-describedby="alert-dialog-slide-description"
-                                            >
-                                                <DialogTitle id="alert-dialog-slide-title">{"Use Google's location service?"}</DialogTitle>
-                                                <DialogContent>
-                                                    <FormControl variant="outlined" className={classes.formControl}>
-                                                        <Select
-                                                            native
-                                                            value={role}
-                                                            onChange={handleChange}
-                                                            label="Age"
-                                                            inputProps={{
-                                                                name: 'role',
-                                                                id: 'outlined-age-native-simple',
-                                                            }}
-                                                        >
-                                                            <option aria-label="None" value="" />
-                                                            <option value={"Admin"}>Admin</option>
-                                                            <option value={"Reviwer"}>Reviwer</option>
-                                                            <option value={"Editor"}>Editor</option>
-                                                        </Select>
-                                                    </FormControl>
-                                                </DialogContent>
-                                                <DialogActions>
-                                                    <Button onClick={handleClose} color="primary">
-                                                        cancel
-                                                    </Button>
-                                                    {role ?
-                                                        <Button variant="contained" color="primary"
-                                                            onClick={() => handelSubmit(row._id)}>
-                                                            Update User Type
+                                            {openedRow && (
+                                                <Dialog
+                                                    open={open}
+                                                    TransitionComponent={Transition}
+                                                    keepMounted
+                                                    onClose={handleClose}
+                                                    aria-labelledby="alert-dialog-slide-title"
+                                                    aria-describedby="alert-dialog-slide-description"
+                                                >
+                                                    <DialogTitle id="alert-dialog-slide-title">{"Change User Type"}</DialogTitle>
+                                                    <DialogContent>
+                                                        <FormControl variant="outlined" className={classes.formControl}>
+                                                            <Select
+                                                                style={{ width: "300px" }}
+                                                                native
+                                                                value={role}
+                                                                onChange={handleChange}
+                                                                label="Age"
+                                                                inputProps={{
+                                                                    name: 'role',
+                                                                    id: 'outlined-age-native-simple',
+                                                                }}
+                                                            >
+                                                                <option aria-label="None" value="" />
+                                                                <option value={"Admin"}>Admin</option>
+                                                                <option value={"Reviwer"}>Reviwer</option>
+                                                                <option value={"Editor"}>Editor</option>
+                                                            </Select>
+                                                        </FormControl>
+                                                    </DialogContent>
+                                                    <DialogActions>
+                                                        <Button onClick={handleClose} color="primary">
+                                                            cancel
                                                         </Button>
-                                                        :
-                                                        <Button variant="contained" color="primary" disabled>
-                                                            Update User Type
-                                                        </Button>
-                                                    }
-                                                </DialogActions>
-                                            </Dialog>
+                                                        {role ?
+                                                            <Button variant="contained" color="primary"
+                                                                onClick={() => handelSubmit(openedRow._id)}>
+                                                                Update User Type
+                                                            </Button>
+                                                            :
+                                                            <Button variant="contained" color="primary" disabled>
+                                                                Update User Type
+                                                            </Button>
+                                                        }
+                                                    </DialogActions>
+                                                </Dialog>
+                                            )}
 
                                         </TableCell>
                                         <TableCell align="center" size="small">

@@ -99,11 +99,12 @@ const AdminSession = () => {
         dispatch(adminApprovels(key))
     }
 
-    const ignoreSession = () => {
-        console.log('ignore');
+    const ignoreSession = (id) => {
+        console.log('ignore id', id);
     }
-
-    const handleClickOpen = () => {
+    const [openedRow, setOpenedRow] = useState()
+    const handleClickOpen = (row) => {
+        setOpenedRow(row)
         setOpen(true);
     };
 
@@ -182,12 +183,11 @@ const AdminSession = () => {
                             <Table className={classes.table} aria-label="simple table">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell>Session Name</TableCell>
-                                        <TableCell style={{ width: "300px" }} align="center">Status</TableCell>
-                                        <TableCell style={{ width: "300px" }} align="center">Researcher Name</TableCell>
-                                        <TableCell style={{ width: "300px" }} align="center">Session Price</TableCell>
-                                        <TableCell style={{ width: "300px" }} align="right"></TableCell>
-                                        <TableCell style={{ width: "400px" }} align="center"></TableCell>
+                                        <TableCell >Session Name</TableCell>
+                                        <TableCell align="center">Status</TableCell>
+                                        <TableCell align="center">Researcher Name</TableCell>
+                                        <TableCell align="center">Session Price</TableCell>
+                                        <TableCell align="center"></TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -225,21 +225,25 @@ const AdminSession = () => {
                                             </TableCell>
                                             <TableCell align="center">{row.researcherName}</TableCell>
                                             <TableCell align="center">${row.sessionPrice}</TableCell>
-                                            <div className={classes.input}>
-                                                <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-                                                    <AppBar className={classes.appBar}>
-                                                        <Toolbar>
-                                                            <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
-                                                                <CloseIcon />
-                                                            </IconButton>
-                                                            <Typography variant="h6" className={classes.title}>
-                                                                {row.sessionName}
-                                                            </Typography>
-                                                        </Toolbar>
-                                                    </AppBar>
-                                                    <SessionView post={row} />
-                                                </Dialog>
-                                            </div>
+                                            {
+                                                openedRow && (
+                                                    <div className={classes.input}>
+                                                        <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+                                                            <AppBar className={classes.appBar}>
+                                                                <Toolbar>
+                                                                    <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+                                                                        <CloseIcon />
+                                                                    </IconButton>
+                                                                    <Typography variant="h6" className={classes.title}>
+                                                                        {openedRow.sessionName}
+                                                                    </Typography>
+                                                                </Toolbar>
+                                                            </AppBar>
+                                                            <SessionView post={openedRow} />
+                                                        </Dialog>
+                                                    </div>
+                                                )
+                                            }
                                             <TableCell align="left">
                                                 <Button
                                                     variant="contained"
@@ -284,7 +288,7 @@ const AdminSession = () => {
                                                         style={{ marginLeft: "5px", background: "#f44336", color: "#fffff0" }}
                                                         size="small"
                                                         className={classes.button}
-                                                        onClick={ignoreSession}
+                                                        onClick={() => ignoreSession(row._id)}
                                                         startIcon={<RemoveCircleIcon />}
                                                     >
                                                         Remove

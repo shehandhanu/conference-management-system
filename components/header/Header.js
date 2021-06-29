@@ -101,8 +101,6 @@ const Header = () => {
 
     axios.get('http://localhost:4000/api/v1/profile', { withCredentials: true }).then(data => setData(data))
 
-
-
     useEffect(() => {
 
         dispatch(getUser());
@@ -110,14 +108,12 @@ const Header = () => {
         console.log("Data", data);
         const token = CookieService.get()
 
-
-
         if (!token) {
             setUser(false)
         } else {
             setUser(true)
             setData(data)
-            toast.success('Welcome ' + name)
+            toast.success('Welcome To Black Code Team')
         }
 
     }, [dispatch, auth])
@@ -232,7 +228,7 @@ const Header = () => {
                                         </div>
                                     </MenuItem>
                                     : null}
-                                {type == "Reviewer" || type == "Admin" ?
+                                {type == "Reviwer" || type == "Admin" ?
                                     <MenuItem onClick={handleClose}>
                                         <div>
                                             <Link to={'/reviewresearch'} style={{ textDecoration: "none", color: "#00000f" }}>
