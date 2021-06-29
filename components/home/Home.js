@@ -131,56 +131,50 @@ const Home = () => {
                     <div className="section-header">
                         <h3 className="section-title">Services</h3>
                         <p className="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-            doloremque</p>
+                            doloremque</p>
                     </div>
                     <div className="row">
                         <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                             <div className="box">
                                 <div className="icon"><i className="fa fa-desktop"></i></div>
-                                <h4 className="title">Lorem Ipsum</h4>
-                                <p className="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                occaecati cupiditate non provident</p>
+                                <h4 className="title">You can view the conference details</h4>
+                                <p className="description">Not only for the registered users, anyone can view the conference details as a guest.</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                             <div className="box">
                                 <div className="icon"><i className="fa fa-bar-chart"></i></div>
-                                <h4 className="title">Dolor Sitema</h4>
-                                <p className="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat tarad limino ata</p>
+                                <h4 className="title">You can submit your research papers</h4>
+                                <p className="description">In our website, users can submit their research papers. Only registered users are able to submit reseacrh papers</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                             <div className="box">
                                 <div className="icon"><i className="fa fa-paper-plane"></i></div>
-                                <h4 className="title">Sed ut perspiciatis</h4>
-                                <p className="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur</p>
+                                <h4 className="title">You can conduct workshops</h4>
+                                <p className="description">In our website registered users can conduct worshops and may introduce new ideas</p>
                             </div>
                         </div>
 
                         <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                             <div className="box">
                                 <div className="icon"><i className="fa fa-photo"></i></div>
-                                <h4 className="title">Magni Dolores</h4>
-                                <p className="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum</p>
+                                <h4 className="title">Better security for documentation</h4>
+                                <p className="description">We provide 100% security for your documentation. Unauthorized people can not access your documents. And always we keep back ups with us.</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                             <div className="box">
                                 <div className="icon"><i className="fa fa-road"></i></div>
-                                <h4 className="title">Nemo Enim</h4>
-                                <p className="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                praesentium voluptatum deleniti atque</p>
+                                <h4 className="title">You can present research - related activities</h4>
+                                <p className="description">You can give better explanation of research related activities for viewer</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                             <div className="box">
                                 <div className="icon"><i className="fa fa-shopping-bag"></i></div>
-                                <h4 className="title">Eiusmod Tempor</h4>
-                                <p className="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
-                soluta nobis est eligendi</p>
+                                <h4 className="title">Contact each other easily</h4>
+                                <p className="description">We gather and provide contact details for your comfy</p>
                             </div>
                         </div>
                     </div>
@@ -211,44 +205,18 @@ const Home = () => {
             {/* <!--==========================Team Section============================--> */}
             <section id="leatetnews">
 
-                <div className="container wow fadeIn">
+                <div className="container wow fadeIn mt-5">
                     <div className="section-header">
                         <h3 className="section-title">Team</h3>
-                        <p className="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-            doloremque</p>
+                        <p className="section-description">we are the team with four members who following Bsc.software engineering degree at sliit.Our team
+                            has best members who has better team spirit and we all are willing to learn new technologies.
+                            Contact us for any software solution.We will give best product for you and we will not let you down.</p>
                     </div>
                 </div>
 
             </section>
             {/* <!-- #team --> */}
 
-            {/* <!--==========================Portfolio Section============================--> */}
-            <section id="callforpapers">
-
-                <div className="container wow fadeIn">
-                    <div className="section-header">
-                        <h3 className="section-title">Call For Papers</h3>
-                        <p className="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-            doloremque</p>
-                    </div>
-                </div>
-
-            </section>
-            {/* <!-- #portfolio --> */}
-
-            {/* <!--==========================Team Section============================--> */}
-            <section id="team">
-
-                <div className="container wow fadeIn">
-                    <div className="section-header">
-                        <h3 className="section-title">Team</h3>
-                        <p className="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-            doloremque</p>
-                    </div>
-                </div>
-
-            </section>
-            {/* <!-- #team --> */}
 
             {/* <!--==========================Contact Section============================--> */}
             <section id="contactus">
@@ -256,8 +224,24 @@ const Home = () => {
                 <div className="container wow fadeIn">
                     <div className="section-header">
                         <h3 className="section-title">Contact</h3>
-                        <p className="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-            doloremque</p>
+                        <p className="section-description">Contact
+                            If you are in trouble?Need a software solution? Let us to take your trouble and we will give a
+                            best solution. Contact us - blackcodeteam1st@gmail.com
+                        </p>
+                        <h5 className="section-title">Contact details of team members</h5>
+                        <p className="section-description" >Danuka dilshan - dnkdilshan@gmail.com</p>
+                        <p className="section-description" >Sandaru manilka - gsandarumanilka@gmail.com</p>
+                        <p className="section-description" >Shehan dhanuddara - shehan.dhanuddara1998@gmail.com</p>
+                        <p className="section-description" >Janitha tharaka - janitha613@gmail</p>
+
+                        <h5 className="section-title">Developers on social media</h5>
+                        <p className="section-description" > Danuka dilshan - https://www.linkedin.com/in/danuka-dilshan-5094a31ba</p>
+                        <p className="section-description" >Shehan dhanuddara - https://www.linkedin.com/in/shehan-dhanuddara-b940b5196/</p>
+                        <p className="section-description" >Janitha tharaka - https://www.linkedin.com/in/tharaka-jayasundara-0b99001a3/e</p>
+
+
+
+
                     </div>
                 </div>
 
