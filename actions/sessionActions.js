@@ -141,6 +141,32 @@ export const adminApprovels = (key) => async (dispatch) => {
     }
 }
 
+export const adminReject = (key) => async (dispatch) => {
+    try {
+
+        dispatch({
+            type: SESSIONS_REQUEST,
+            payload: []
+        })
+
+        const { datax } = await axios.get('http://localhost:4000/api/v1/admin/rejectsession/' + key, { withCredentials: true })
+
+        const { data } = await axios.get('http://localhost:4000/api/v1/allsessions', { withCredentials: true })
+
+        dispatch({
+            type: SESSIONS_SUCCESS,
+            payload: data.sessions
+        })
+
+
+    } catch (error) {
+        dispatch({
+            type: SESSIONS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+
 export const joinSessions = (key) => async (dispatch) => {
     try {
 

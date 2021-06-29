@@ -35,7 +35,7 @@ import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import CookieService from '../../../API/Cookie'
-import { getSessions, adminApprovels } from '../../../actions/sessionActions';
+import { getSessions, adminApprovels, adminReject } from '../../../actions/sessionActions';
 
 const drawerWidth = 240;
 
@@ -69,7 +69,8 @@ const useStyles = makeStyles((theme) => ({
         height: 240,
     },
     table: {
-        width: "100%",
+        width: '1200px'
+
 
     },
 }));
@@ -101,6 +102,7 @@ const AdminSession = () => {
 
     const ignoreSession = (id) => {
         console.log('ignore id', id);
+        dispatch(adminReject(id))
     }
     const [openedRow, setOpenedRow] = useState()
     const handleClickOpen = (row) => {

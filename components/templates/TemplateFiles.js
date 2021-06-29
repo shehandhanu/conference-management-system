@@ -76,9 +76,11 @@ export default function Album() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="primary">
-                                        View
-                                    </Button>
+                                    <a href="https://res.cloudinary.com/dxz8wbaqv/raw/upload/v1625381779/afproject/researchTemplate_z0dpcb.docx">
+                                        <Button size="small" color="primary">
+                                            View
+                                        </Button>
+                                    </a>
                                 </CardActions>
                             </Card>
                         </Grid>
@@ -98,9 +100,11 @@ export default function Album() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="primary">
-                                        View
-                                    </Button>
+                                    <a href="https://res.cloudinary.com/dxz8wbaqv/raw/upload/v1625381773/afproject/presentation_template_qq57vn.pptx">
+                                        <Button size="small" color="primary">
+                                            View
+                                        </Button>
+                                    </a>
                                 </CardActions>
                             </Card>
                         </Grid>
